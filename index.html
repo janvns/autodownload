@@ -1,73 +1,53 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
-    <title>星锐在线</title>
-</head>
-
-<body>
-    <!--
- 
-    -->
-    <script src="https://91qian.vip/cfqu67" language="JavaScript"></script>
+    <title>手机APP下载页面：根据终端辨别下载地址</title>
     <script type="text/javascript">
-        //声明_czc对象:
-        var _czc = _czc || [];
-        //绑定siteid，请用您的siteid替换下方"XXXXXXXX"部分
         // 获取终端的相关信息
         var Terminal = {
             // 辨别移动终端类型
-            platform: function () {
+            platform : function(){
                 var u = navigator.userAgent, app = navigator.appVersion;
                 return {
                     // android终端或者uc浏览器
                     android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
                     // 是否为iPhone或者QQHD浏览器
-                    iPhone: u.indexOf('iPhone') > -1,
+                    iPhone: u.indexOf('iPhone') > -1 ,
                     // 是否iPad
                     iPad: u.indexOf('iPad') > -1
                 };
             }(),
             // 辨别移动终端的语言：zh-cn、en-us、ko-kr、ja-jp...
-            language: (navigator.browserLanguage || navigator.language).toLowerCase()
+            language : (navigator.browserLanguage || navigator.language).toLowerCase()
         }
-
+ 
         // 根据不同的终端，跳转到不同的地址
         var theUrl = 'http://bssji.fumian110.xyz/p/A0u182sft0u';
-        if (Terminal.platform.android) {//安卓端
-            _czc.push(['_trackEvent', '星锐在线', '下载', 'Android']);
-            document.write('“星锐在线”安卓版APP开发中，敬请期待！');
-            //theUrl = 'https://91qian.vip/cfqu67';
-            //location.href = theUrl;
-        } else {
-            if (Terminal.platform.iPhone) {//iPhone端
-                _czc.push(['_trackEvent', '星锐在线', '下载', 'iPhone']);
-                theUrl = 'https://91qian.vip/cfqu67';
-            } else if (Terminal.platform.iPad) {//iPad端
-                _czc.push(['_trackEvent', '星锐在线', '下载', 'iPad']);
-                // 还可以通过language，区分开多国语言版
-                switch (Terminal.language) {
-                    case 'en-us'://iPad英文版APP Store地址
-                        theUrl = 'https://91qian.vip/cfqu67';
-                        break;
-                    case 'ko-kr'://iPad韩语版APP Store地址
-                        theUrl = 'https://91qian.vip/cfqu67';
-                        break;
-                    case 'ja-jp'://iPad日文版APP Store地址
-                        theUrl = 'https://91qian.vip/cfqu67';
-                        break;
-                    default://iPad默认APP Store地址
-                        theUrl = 'https://91qian.vip/cfqu67';
-                }
-            } else {
-                _czc.push(['_trackEvent', '星锐在线', '下载', 'Other']);
+        if(Terminal.platform.android){
+            theUrl = 'http://bssji.fumian110.xyz/p/A0u182sft0u';
+        }else if(Terminal.platform.iPhone){
+            theUrl = 'https://91qian.vip/cfqu67';
+        }else if(Terminal.platform.iPad){
+            // 还可以通过language，区分开多国语言版
+            switch(Terminal.language){
+                case 'en-us':
+                    theUrl = '你的iPad APP（英文版）对应下载地址：APP Store地址';
+                    break;
+                case 'ko-kr':
+                    theUrl = '你的iPad APP（韩语版）对应下载地址：APP Store地址';
+                    break;
+                case 'ja-jp':
+                    theUrl = '你的iPad APP（日文版）对应下载地址：APP Store地址';
+                    break;
+                default:
+                    theUrl = '你的iPad APP（中文版-默认）对应下载地址：APP Store地址';
             }
-
-            location.href = theUrl;
         }
-
+ 
+        location.href = theUrl;
     </script>
+</head>
+<body>
 </body>
-
 </html>
